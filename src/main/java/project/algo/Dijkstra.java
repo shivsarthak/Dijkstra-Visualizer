@@ -7,7 +7,8 @@ import project.priorityQueue.PriorityQueueClass;
 import project.priorityQueue.PriorityQueueClass.QueueItem;
 
 public class Dijkstra {
-    public static void dijkstra(GraphClass graph, int sourceIndex) throws InterruptedException {
+
+    public void run(GraphClass graph, int sourceIndex) throws InterruptedException {
         int vertices = graph.vertices.size();
         int[] distance = new int[vertices];
         boolean[] visited = new boolean[vertices];
@@ -42,31 +43,10 @@ public class Dijkstra {
         }
         int i = 0;
         for (int b : distance) {
-            System.out.println("Distance to " + i + ":" + b);
+            System.out.println("Distance to " + graph.vertices.get(i).node.getId() + ":" + b);
             i++;
         }
 
     }
 
-    public static void main(String[] args) {
-        GraphClass graph = new GraphClass();
-        
-        graph.addVertex("A");
-        graph.addVertex("B");
-        graph.addVertex("C");
-        graph.addVertex("D");
-        graph.addVertex("E");
-        graph.addEdge(0, 1, 6);
-        graph.addEdge(2, 1, 3);
-        graph.addEdge(0, 2, 2);
-        graph.addEdge(2, 3, 1);
-        graph.addEdge(0, 4, 3);
-        graph.addEdge(4, 1, 1);
-        try {
-            dijkstra(graph, 0);
-        } catch (Exception e) {
-
-            e.printStackTrace();
-        }
-    }
 }
